@@ -13,7 +13,14 @@ const clearBtn = document.querySelector('.clear-tasks');
 loadEventListeners();
 
 function loadEventListeners() {
+  // Event listener for the ADD TASK button
   form.addEventListener('submit', addTask);
+  // Event listener for the remove task icon (Event delegation: ul)
+  taskList.addEventListener('click', removeTask);
+  // Event listener for the CLEAR TASKS button
+  clearBtn.addEventListener('click', clearTasks);
+  // Event listener for Filter Tasks
+  filter.addEventListener('keyup', filterTasks);
 }
 
 function addTask(event) {
@@ -40,4 +47,30 @@ function addTask(event) {
   taskInput.value = '';
 
   event.preventDefault();
+}
+
+function removeTask(event) {
+  if (event.target.parentElement.classList.contains('delete-item'))
+    if (confirm('Are you sure?'))
+      event.target.parentElement.parentElement.remove();
+}
+
+function clearTasks(event) {
+  while (taskList.firstChild) {
+    taskList.removeChild(taskList.firstChild);
+  }
+  // A simpler but slower option
+  // taskList.innerHTML = '';
+}
+
+function filterTasks(event) {
+  const text = event.target.value.toLowerCase();
+  document.querySelectorAll('li.collection-item').forEach(task => {
+    const item = task.firstChild.textContent;
+    if (item.toLowerCase().indexOf(text) != -1)
+      task.style.display = 'block';
+    else
+      task.style.display = 'none';
+  });
+  console.log(event.target.value);
 }
