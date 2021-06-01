@@ -2,6 +2,8 @@
 A "To Do" list app crafted in vanilla JavaScript (no JS frameworks).
 It implements **local storage persistance**, so we have available our tasks even after reopening the browser.
 
+Click [here](https://lifebalance.github.io/todo-list/) to see it **live**!
+
 ## Dependencies:
 
 * [Materialize 1.0](https://materializecss.com/)
