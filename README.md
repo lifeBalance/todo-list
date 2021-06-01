@@ -4,6 +4,8 @@ It implements **local storage persistance**, so we have available our tasks even
 
 Click [here](https://lifebalance.github.io/todo-list/) to see it **live**!
 
+![screenshot](todo-list.png)
+
 ## Dependencies:
 
 * [Materialize 1.0](https://materializecss.com/)
